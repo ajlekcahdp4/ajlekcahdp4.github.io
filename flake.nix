@@ -22,13 +22,35 @@
 
       perSystem =
         { pkgs, ... }:
-        rec {
+        let
+        gems = pkgs.bundlerEnv {
+          name = "jekyll-env";
+          ruby = pkgs.ruby;
+          gemset  = ./gemset.nix;
+          gemfile  = ./Gemfile;
+          lockfile  = ./Gemfile.lock;
+        };
+        buildSite = {pkgs, stdenv, ruby, ...}: stdenv.mkDerivation {
+         name = "build-site";
+         src = ./.;
+         buildInputs = [ruby gems];
+         installPhase = ''
+           mkdir -p $out/bin
+           echo "#!/usr/bin/env bash
+           bundle exec jekyll build" > $out/bin/build-site
+           chmod +x $out/bin/build-site
+         '';
+        };
+        in {
           imports = [ ./nix/treefmt.nix ];
 
+          packages.default = pkgs.callPackage buildSite {};
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = with pkgs; [
               ruby
               jekyll
+              act
+              bundix
             ];
           };
         };
