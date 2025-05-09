@@ -1,0 +1,116 @@
+# The Site Configuration
+
+theme: jekyll-theme-chirpy
+
+lang: en
+
+timezone: Europe/Moscow
+
+title: Alexander Romanov
+
+tagline: Software engineer
+
+description: >-
+  Alexander Romanov, Software engineer, blog
+
+url: "https://ajlekcahdp4.github.io"
+
+github:
+  username: ajlekcahdp4
+
+social:
+  name: Alexander Romanov
+  email: mrromanon@gmail.com
+  links:
+    - https://github.com/ajlekcahdp4
+
+pageviews:
+  provider: goatcounter
+
+theme_mode: dark
+
+avatar: "/assets/img/avatar.jpg"
+
+# The URL of the site-wide social preview image used in SEO `og:image` meta tag.
+# It can be overridden by a customized `page.image` in front matter.
+social_preview_image: # string, local or CORS resources
+
+toc: true
+
+paginate: 10
+
+baseurl: ""
+
+# ------------ The following options are not recommended to be modified ------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - flake.nix
+  - flake.lock
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+  - ".envrc"
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
