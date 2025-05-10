@@ -36,10 +36,10 @@ VPS and local machines).
 I'm currently working on machine code lifter called
 [llvm-bleach](https://github.com/ajlekcahdp4/llvm-bleach) which allows to lift
 any machine code to LLVM IR to further analyze and compile for different
-architectures. It's greate and allows extremely high level of flexibility but
+architectures. It's great and allows extremely high level of flexibility but
 is still in very early development stages.
 
-- Various homelab projects
+### Various homelab projects
 
 ## Contacts
 
