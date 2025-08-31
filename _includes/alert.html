@@ -1,0 +1,4 @@
+<div class="alert alert-{{ include.type }}">
+  <strong>{{ include.title | default: include.type | capitalize }}</strong>
+  {{ include.content }}
+</div>

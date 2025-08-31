@@ -5,3 +5,29 @@
 $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 
 @import "jekyll-theme-chirpy";
+.alert {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid;
+  border-radius: 4px;
+  
+  &.alert-note {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+  }
+  
+  &.alert-warning {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+  }
+  
+  &.alert-caution {
+    background-color: #ffebee;
+    border-color: #f44336;
+  }
+  
+  &.alert-tip {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+  }
+}
